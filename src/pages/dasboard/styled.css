@@ -1,0 +1,26 @@
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+}
+.dashboard > img {
+  width: 200px;
+  height: 200px;
+  border-radius: 4px;
+  cursor: pointer;
+  object-fit: cover;
+  margin: 20px;
+}
+.close-btn {
+  top: 40px;
+  right: 40px;
+  z-index: 999999;
+  position: fixed;
+  cursor: pointer;
+}
+.modal-container {
+  position: relative;
+}
+
+.view-container {
+    padding: 30px;
+}
