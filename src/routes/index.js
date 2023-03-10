@@ -15,16 +15,20 @@ const AppRoutes = () => {
   const routerConfig = [
     {
       path: ROUTES.HOME,
-      element: <Redirect condition={true} to={ROUTES.DASHBOARD} />,
+      element: (
+        <Redirect
+          condition={!!localStorage.getItem("ID")}
+          to={ROUTES.DASHBOARD}
+        />
+      ),
     },
     {
       path: ROUTES.HOME,
       element: (
         <ProtectedRoute
-          condition={true}
+          condition={!!localStorage.getItem("ID")}
           redirectTo={ROUTES.HOME}
-        >
-        </ProtectedRoute>
+        ></ProtectedRoute>
       ),
     },
   ];
@@ -35,7 +39,7 @@ const AppRoutes = () => {
       children: [
         {
           path: ROUTES.DASHBOARD,
-          element: <Dashboard />
+          element: <Dashboard />,
         },
         {
           path: ROUTES.SIGNIN,

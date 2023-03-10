@@ -1,5 +1,6 @@
 import Modal from "react-modal";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   ReactPhotoSphereViewer,
   MarkersPlugin,
@@ -115,6 +116,12 @@ const PanoModal = ({ modalIsOpen, closeModal, img }) => {
 const Dashboard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if(!localStorage.getItem("ID")) {
+        navigate("/signin");
+    }
+  }, [])
   return (
     <div>
       <PanoModal
